@@ -140,7 +140,7 @@ function extract(input: string, range: Range) {
     });
 }
 
-suite('Extension Tests', () => {
+suite('extractVariable', () => {
     test('extractVariable', () => {
         return cases.reduce((p, c) => {
             return p.then(() => {
