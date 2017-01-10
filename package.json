@@ -2,7 +2,7 @@
     "name": "scss-refactoring",
     "displayName": "SCSS Refactoring",
     "description": "SCSS refactoring tools.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "lukazakrajsek",
     "repository": {
         "type": "git",
@@ -35,6 +35,9 @@
         "commands": [{
             "command": "extension.scssRefactoringExtractVariable",
             "title": "SCSS Refactoring: Extract Variable"
+        }, {
+            "command": "extension.scssRefactoringFormatVariables",
+            "title": "SCSS Refactoring: Format Variables"
         }],
         "keybindings": [{
             "command": "extension.scssRefactoringExtractVariable",
