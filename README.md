@@ -111,3 +111,43 @@ $menu-active-hover-link-font-weight: bold;
     }
 }
 ```
+
+## Format variables
+
+Format variables.
+
+### Examples
+
+```scss
+$foo-text-color: #333;
+$foo-bg-color: #ffffff;
+```
+```scss
+$foo-text-color: #333;
+$foo-bg-color:   #ffffff;
+```
+
+***
+
+```scss
+@import "variables";
+
+$foo-text-color: #333;
+$foo-bg-color: #ffffff;
+
+.foo {
+    color: $foo-text-color;
+    background-color: $foo-bg-color;
+}
+```
+```scss
+@import "variables";
+
+$foo-text-color: #333;
+$foo-bg-color:   #ffffff;
+
+.foo {
+    color: $foo-text-color;
+    background-color: $foo-bg-color;
+}
+```
