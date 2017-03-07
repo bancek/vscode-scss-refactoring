@@ -2,7 +2,7 @@
     "name": "scss-refactoring",
     "displayName": "SCSS Refactoring",
     "description": "SCSS refactoring tools.",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "publisher": "lukazakrajsek",
     "repository": {
         "type": "git",
