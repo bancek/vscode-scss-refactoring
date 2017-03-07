@@ -83,6 +83,11 @@ export function extractVariable(auto: boolean = false) {
                     if (match != null) {
                         namesDepths.push([match[1], depth]);
                     }
+                } else if (/^&--/.test(part)) {
+                    let match = part.match(/^&--([\w+\-]+)/);
+                    if (match != null) {
+                        namesDepths.push([match[1], depth]);
+                    }
                 } else if (/^a\b/.test(part)) {
                     namesDepths.push(['link', depth]);
                 }

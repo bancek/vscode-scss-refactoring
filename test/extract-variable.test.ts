@@ -118,6 +118,22 @@ $foo-bg-color: #f8f8f8;
         font-weight: $menu-active-hover-link-font-weight;
     }
 }`
+}, {
+    input:
+`.l-menu {
+    &--sticky &__item {
+        color: #f8f8f8;
+    }
+}`,
+    range: [[2, 15], [2, 22]],
+    output:
+`$menu-sticky-item-text-color: #f8f8f8;
+
+.l-menu {
+    &--sticky &__item {
+        color: $menu-sticky-item-text-color;
+    }
+}`
 }];
 
 function extract(input: string, range: Range) {
