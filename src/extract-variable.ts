@@ -17,13 +17,50 @@ export function extractVariable(auto: boolean = false) {
     return Promise.resolve().then(() => {
         let editor = vscode.window.activeTextEditor;
 
-        if (editor.selection.start.isEqual(editor.selection.end)) {
-            return;
-        }
-
         let oldSelection = editor.selection;
 
-        if (oldSelection.start.character != 0) {
+        if (editor.selection.start.isEqual(editor.selection.end)) {
+            const validChars = /[#\w\-]+/;
+
+            const line = editor.selection.start.line;
+            const lineText = editor.document.lineAt(line).text;
+            const char = editor.selection.start.character;
+            const before = lineText.substring(0, char);
+
+            if (!validChars.test(lineText[char])) {
+                return;
+            }
+
+            const colonPos = before.indexOf(':');
+
+            if (colonPos === -1) {
+                return;
+            }
+
+            let startChar = char;
+            let endChar = char + 1;
+
+            while (startChar > colonPos + 1) {
+                if (validChars.test(lineText[startChar - 1])) {
+                    startChar--;
+                } else {
+                    break;
+                }
+            }
+
+            while (endChar < lineText.length - 1) {
+                if (validChars.test(lineText[endChar])) {
+                    endChar++
+                } else {
+                    break;
+                }
+            }
+
+            editor.selection = oldSelection = new vscode.Selection(
+                new vscode.Position(line, startChar),
+                new vscode.Position(line, endChar)
+            );
+        } else if (oldSelection.start.character !== 0) {
             let prevCharPosition = new vscode.Position(oldSelection.start.line, oldSelection.start.character - 1);
             let withPrevChar = editor.document.getText(new vscode.Range(prevCharPosition, oldSelection.end));
 

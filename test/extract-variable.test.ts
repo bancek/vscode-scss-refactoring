@@ -134,6 +134,38 @@ $foo-bg-color: #f8f8f8;
         color: $menu-sticky-item-text-color;
     }
 }`
+}, {
+    input:
+`.l-menu {
+    &--sticky &__item {
+        color: #f8f8f8;
+    }
+}`,
+    range: [[2, 15], [2, 15]],
+    output:
+`$menu-sticky-item-text-color: #f8f8f8;
+
+.l-menu {
+    &--sticky &__item {
+        color: $menu-sticky-item-text-color;
+    }
+}`
+}, {
+    input:
+`.l-menu {
+    &--sticky &__item {
+        color: black;
+    }
+}`,
+    range: [[2, 18], [2, 18]],
+    output:
+`$menu-sticky-item-text-color: black;
+
+.l-menu {
+    &--sticky &__item {
+        color: $menu-sticky-item-text-color;
+    }
+}`
 }];
 
 function extract(input: string, range: Range) {
