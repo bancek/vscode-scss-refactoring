@@ -44,7 +44,21 @@
             "key": "ctrl+alt+e",
             "mac": "cmd+ctrl+e",
             "when": "editorTextFocus"
-        }]
+        }],
+        "menus": {
+			"editor/context": [
+				{
+					"command": "extension.scssRefactoringFormatVariables",
+					"when": "editorHasSelection && editorLangId == scss",
+					"group": "ScssRefactor"
+				},
+				{
+					"command": "extension.scssRefactoringExtractVariable",
+					"when": "editorHasSelection && editorLangId == scss",
+					"group": "ScssRefactor"
+				}
+			]
+		}
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
